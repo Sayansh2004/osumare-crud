@@ -34,7 +34,9 @@ let tasks=[
         description:"Call Aakash to bring some notes for the upcoming exams",
     },
 ];
-
+app.get("/",(req,res)=>{
+    res.redirect("/tasks");
+})
 app.get("/tasks",(req,res)=>{
     res.render("index.ejs",{tasks});
 })
