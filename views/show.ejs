@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task In Detail</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-4">
+        <h2>Task Details</h2>
+        <div class="mb-3">
+            <p class="text-muted">Task ID: <%= task.id %></p>
+            <p><strong>Title:</strong> <%= task.title %></p>
+            <p><strong>Username:</strong> @<%= task.username %></p>
+            <p><strong>Description:</strong> <%= task.description %></p>
+        </div>
+        
+        <div class="d-flex gap-2">
+            <form action="/tasks/<%= task.id %>?_method=DELETE" method="POST">
+                <button type="submit" class="btn btn-danger">Delete Task</button>
+            </form>
+            <a href="/tasks" class="btn btn-secondary">Back</a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Tasks</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-4">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1>The Task Hub</h1>
+            <a href="/tasks/new" class="btn btn-primary">Add New Task</a>
+        </div>
+
+        <div class="row">
+            <% for(task of tasks){ %>
+                <div class="col-md-6 mb-3">
+                    <div class="border p-3">
+                        <h4><%= task.title %></h4>
+                        <p class="text-muted">@<%= task.username %></p>
+                        <p><%= task.description %></p>
+                        <div class="d-flex gap-2">
+                            <a href="/tasks/<%= task.id %>" class="btn btn-info btn-sm">View</a>
+                            <a href="/tasks/<%= task.id %>/edit" class="btn btn-warning btn-sm">Edit</a>
+                            <form action="/tasks/<%= task.id %>?_method=DELETE" method="POST" class="d-inline">
+                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
